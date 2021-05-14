@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                          http://www.springframework.org/schema/beans/spring-beans.xsd
+                          http://www.springframework.org/schema/aop
+                          http://www.springframework.org/schema/aop/spring-aop.xsd">
+    <bean id="userService" class="aop.UserServiceImpl"></bean>
+    <!--方式一-->
+<!--    <bean id="beforeLog" class="aop.AfterLog"></bean>-->
+<!--    <bean id="afterLog" class="aop.AfterLog"></bean>-->
+<!--    <aop:config>-->
+<!--        <aop:pointcut id="pointcut" expression="execution(* aop.UserServiceImpl.*(..))"/>-->
+<!--        <aop:advisor advice-ref="afterLog" pointcut-ref="pointcut"></aop:advisor>-->
+<!--        <aop:advisor advice-ref="beforeLog" pointcut-ref="pointcut"></aop:advisor>-->
+<!--    </aop:config>-->
+
+    <!--方式二 自定义切面-->
+<!--    <bean id="diy" class="aop.DiyPointCut"></bean>-->
+<!--    <aop:config>-->
+<!--        <aop:aspect ref="diy">-->
+<!--            <aop:pointcut id="point" expression="execution(* aop.UserServiceImpl.*(..))"/>-->
+<!--            <aop:before method="before" pointcut-ref="point"></aop:before>-->
+<!--            <aop:after method="after" pointcut-ref="point"></aop:after>-->
+<!--            <aop:after-returning method="afterReturning" pointcut-ref="point"></aop:after-returning>-->
+<!--            <aop:around method="around" pointcut-ref="point"/>-->
+<!--        </aop:aspect>-->
+<!--    </aop:config>-->
+
+<!--    方法三 注解-->
+    <bean id="ann" class="aop.Annotation"></bean>
+
+    <aop:aspectj-autoproxy/>
+</beans>
